@@ -8,7 +8,7 @@ pipeline {
          agent {docker { image 'maven:3-amazoncorretto-17-debian' }}  
             steps{
                 withSonarQubeEnv('sonarserver'){ 
-              sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=etekoe222_week16-code'
+              sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=etekoe222_project-week16'
              // sh 'mvn sonar:sonar'
             }
             }
@@ -23,7 +23,7 @@ pipeline {
                  
                 sh 'curl -uadmin:AP5mZ1TGxbfJg5s8o7m1rRSRP4i -T \
                 target/bio*.jar \
-                "http://52.23.253.203:8081/artifactory/geoapp/"'
+                "http://18.212.51.59:8081/artifactory/geoapp/"'
             }
         }
         stage('image build'){
